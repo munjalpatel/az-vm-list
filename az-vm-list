@@ -1,0 +1,7 @@
+#!/bin/sh
+
+REGION=$(echo $* | sed -n 's/.*--region \([^ ]*\).*/\1/p')
+MIN_CPUS=$(echo $* | sed -n 's/.*--min-cpus \([^ ]*\).*/\1/p')
+MAX_CPUS=$(echo $* | sed -n 's/.*--max-cpus \([^ ]*\).*/\1/p')
+
+node $HOME/workspace/.tools/az-vm-list/az-vm-list.js --region=${REGION} --min-cpus=${MIN_CPUS} --max-cpus=${MAX_CPUS}
